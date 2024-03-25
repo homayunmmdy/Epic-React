@@ -74,7 +74,7 @@ const Navbar = () => {
                   type="radio"
                   name="theme-dropdown"
                   className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="cupcake"
+                  aria-label="کاپ کیک"
                   value="cupcake"
                 />
               </li>
@@ -83,7 +83,7 @@ const Navbar = () => {
                   type="radio"
                   name="theme-dropdown"
                   className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="retro"
+                  aria-label="رترو"
                   value="retro"
                 />
               </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
                   type="radio"
                   name="theme-dropdown"
                   className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="nord"
+                  aria-label="نورد"
                   value="nord"
                 />
               </li>
@@ -101,7 +101,7 @@ const Navbar = () => {
                   type="radio"
                   name="theme-dropdown"
                   className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="Aqua"
+                  aria-label="آبی"
                   value="aqua"
                 />
               </li>
