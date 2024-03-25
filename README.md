@@ -1,40 +1,36 @@
-# Multi-Language Website 
-
-<!-- [Screencast from 2024-01-26 02-14-47.webm](https://github.com/homayunmmdy/my-app/assets/129702378/70cbc1b0-3f8e-42d6-8a77-e5db6a6fb83a) -->
-
-
-## Introduction
-
-Welcome to our multi-language website powered by Next.js! This application supports various languages, including English, French, Dutch, Español, and more. You can even use the application in your preferred language by customizing the language settings.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-To run this application, make sure you have Node.js installed on your machine. If not, you can download it from [Node.js website](https://nodejs.org/).
+First, run the development server:
 
-1. **Clone the Repository:**
-   ```bash
-   git clone -b 2.multi_language  https://github.com/homayunmmdy/my-app.git
-   ```
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-3. **Navigate to the Project Directory:**
-   ```bash
-   cd my-app
-   ```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-4. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-3. **Access the Application:**
-   Open your browser and go to [http://localhost:3000](http://localhost:3000).
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-4. **Change Language:**
-   - Use the language selector in the header to switch between supported languages.
-   - The application will automatically update the cookie to remember your language preference.
+## Learn More
 
-## Additional Information
+To learn more about Next.js, take a look at the following resources:
 
-Feel free to explore the Next.js documentation for more advanced configurations and features: [Next.js Documentation](https://nextjs.org/docs).
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Thank you for using our multi-language website! If you encounter any issues or have suggestions, please let us know by opening an issue on our GitHub repository.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
