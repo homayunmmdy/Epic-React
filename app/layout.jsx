@@ -1,8 +1,12 @@
 import { Inter } from "next/font/google";
+import "./Font.css";
 import "./globals.css";
-import  SiteConfig from "@/app/config/site"
+import SiteConfig from "@/app/config/site";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,8 +20,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar />
         {children}
+        <Analytics />
+        <SpeedInsights />
         <Footer />
-        </body>
+      </body>
     </html>
   );
 }
