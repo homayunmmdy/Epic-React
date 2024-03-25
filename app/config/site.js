@@ -36,13 +36,8 @@ const SiteConfig = {
     {
       id : 2 ,
       name : "تماس با ما",
-      link : "/"
-    },
-    {
-      id : 3 ,
-      name : "درباره ما",
-      link : "/"
-    },
+      link : "/contacts"
+    }
   ]
 };
 
