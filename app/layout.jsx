@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import  SiteConfig from "@/app/config/site"
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="nord">
       <body className={inter.className}>
         <Navbar />
-        {children}</body>
+        {children}
+        <Footer />
+        </body>
     </html>
   );
 }

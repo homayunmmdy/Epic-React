@@ -1,10 +1,6 @@
-import SiteConfig from "@/app/config/site";
 import Image from "next/image";
-import Link from "next/link";
-// import { useTranslations } from "next-intl";
 
 const Hero = () => {
-  //   const t = useTranslations("hero");
 
   return (
     <div>
