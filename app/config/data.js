@@ -23,6 +23,29 @@ const StaticData = {
       icon: MdAttachMoney,
     }
   ],
+  pricing: [
+    {
+      id : 1,
+      title : "۱ ماهه",
+      description : "با خرید این پنل ادمین رویال وب برای یک ماه برای  شما فعال می شود ",
+      price: "۲۹۹ هزار تومان"
+    },
+    {
+      id : 2,
+      title : "۱ ساله",
+      description : "با خرید این پنل ادمین رویال وب برای یک سال برای شما فعال می شود ",
+      price: "۳ میلیون",
+      off : "۳.۵ میلیون",
+      most_popular : "محبوبترین"
+    },
+    {
+      id : 3,
+      title : "۳ ماهه",
+      description : "با خرید این پنل ادمین رویال وب برای سه ماه برای  شما فعال می شود ",
+      price: "۷۹۹ هزار تومان",
+      off : "۸۹۷ هزار تومان"
+    },
+  ]
 };
 
 export default StaticData;
