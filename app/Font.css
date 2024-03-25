@@ -10,5 +10,5 @@
 }
 
 body {
-  font-family: "CustomIranSans", Tahoma;
+  font-family: "CustomIranSans", Tahoma !important;
 }

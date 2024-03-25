@@ -5,7 +5,6 @@ import SiteConfig from "@/app/config/site";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +20,6 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Analytics />
-        <SpeedInsights />
         <Footer />
       </body>
     </html>

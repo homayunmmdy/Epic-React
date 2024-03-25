@@ -26,7 +26,7 @@ export async function POST(req) {
     // Create new subscription
     await NewsletterSubscription.create({ email });
 
-    return NextResponse.json({ message: "به خبرنامه مگ نتی فای خوش آمدید" }, { status: 201 });
+    return NextResponse.json({ message: "به خبرنامه رویال وب خوش آمدید" }, { status: 201 });
   } catch (err) {
     console.log(err);
     return NextResponse.json({ message: "Error", err }, { status: 500 });

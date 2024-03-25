@@ -1,4 +1,5 @@
 import SiteConfig from "../config/site";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -6,7 +7,8 @@ const Footer = () => {
       <footer className="footer items-center p-4">
         <aside className="items-center grid-flow-col">
           <p className="text-base">
-            کپی رایت © {new Date().getFullYear()} - {SiteConfig.name}
+            کپی رایت © {new Date().getFullYear()} -
+            <Link href="/">{SiteConfig.name}</Link>
           </p>
         </aside>
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
