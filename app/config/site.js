@@ -35,6 +35,11 @@ const SiteConfig = {
     },
     {
       id : 2 ,
+      name : "تم ها",
+      link : "/themes"
+    },
+    {
+      id : 3 ,
       name : "تماس با ما",
       link : "/contacts"
     }
