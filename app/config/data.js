@@ -207,6 +207,32 @@ const StaticData = {
       price: "۷۹۹ هزار تومان",
       off : "۸۹۷ هزار تومان"
     },
+  ],
+  timeline : [
+    {
+      id: 1 , 
+      date : "۲۵ مارچ",
+      title : "شروع به نوشتن کد برای صحفه اول",
+      timeline : "end"
+    },
+    {
+      id: 2 , 
+      date : "۲۶ مارچ",
+      title : "هاست پروژه روی ورسل و گرفتن اولین مشتری Magnitifypersian",
+      timeline : "end"
+    },
+    {
+      id: 3 , 
+      date : "۲۸ مارچ",
+      title : "اضافه کردن ۳۲ تم برای مشتریان",
+      timeline : "start"
+    },
+    {
+      id: 4 , 
+      date : "۲۹ مارچ",
+      title : "اصافه کردن جدول زمانی",
+      timeline : "start"
+    },
   ]
 };
 

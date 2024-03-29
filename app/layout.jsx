@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
     <html lang={SiteConfig.lang} dir={SiteConfig.dir} data-theme="nord">
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <div className="mt-20">
+          {children}
+        </div>
         <Analytics />
         <Footer />
       </body>
