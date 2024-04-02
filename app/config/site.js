@@ -38,11 +38,11 @@ const SiteConfig = {
       name : "تم ها",
       link : "/themes"
     },
-    {
-      id : 3 ,
-      name : "جدول پیشرفت",
-      link : "/timeline"
-    },
+    // {
+    //   id : 3 ,
+    //   name : "جدول پیشرفت",
+    //   link : "/timeline"
+    // },
     {
       id : 4 ,
       name : "تماس با ما",
