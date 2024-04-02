@@ -5,6 +5,7 @@ import SiteConfig from "@/app/config/site";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import Popup from "./components/Popup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div className="mt-20">
           {children}
+          <Popup />
         </div>
         <Analytics />
         <Footer />
