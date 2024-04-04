@@ -44,6 +44,11 @@ const SiteConfig = {
     //   link : "/timeline"
     // },
     {
+      id : 3 ,
+      name : "تیکت",
+      link : "/tickets"
+    },
+    {
       id : 4 ,
       name : "تماس با ما",
       link : "/contacts"
