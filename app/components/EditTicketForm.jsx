@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const EditTicketForm = ({ ticket }) => {
   const EDITMODE = ticket._id === "new" ? false : true;
@@ -11,7 +12,6 @@ const EditTicketForm = ({ ticket }) => {
     priority: 1,
     progress: 0,
     status: "not started",
-    category: "Hardware Problem",
   };
 
   if (EDITMODE) {
@@ -85,7 +85,7 @@ const EditTicketForm = ({ ticket }) => {
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col gap-3 w-1/2"
+        className="flex flex-col gap-3 w-[90%]"
       >
         <h3>{EDITMODE ? "Update Your Ticket" : "Create New Ticket"}</h3>
         <label>Title</label>
@@ -178,12 +178,6 @@ const EditTicketForm = ({ ticket }) => {
           max="100"
           onChange={handleChange}
         />
-        <label>Status</label>
-        <select name="status" value={formData.status} onChange={handleChange}>
-          <option value="not started">Not Started</option>
-          <option value="started">Started</option>
-          <option value="done">Done</option>
-        </select>
         <input
           type="submit"
           className="btn max-w-xs"

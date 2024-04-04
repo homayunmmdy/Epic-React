@@ -10,13 +10,13 @@ const Login = () => {
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("TicketMaster");
     if (isAuthenticated) {
-      router.push("/tickets");
+      router.push("/admin/tickets/new");
     }
   }, []);
   const handleLogin = () => {
     if (username == "master" && password == "a123c456") {
       localStorage.setItem("TicketMaster", true);
-      router.push("/tickets");
+      router.push("/admin/tickets/new");
     } else {
       alert("Invalid username or password");
     }
