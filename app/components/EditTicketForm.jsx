@@ -10,8 +10,6 @@ const EditTicketForm = ({ ticket }) => {
     title: "",
     description: "",
     priority: 1,
-    progress: 0,
-    status: "not started",
   };
 
   if (EDITMODE) {
@@ -21,6 +19,7 @@ const EditTicketForm = ({ ticket }) => {
     startingTicketData["progress"] = ticket.progress;
     startingTicketData["status"] = ticket.status;
     startingTicketData["category"] = ticket.category;
+    startingTicketData["website"] = ticket.website;
   }
 
   const [formData, setFormData] = useState(startingTicketData);
@@ -65,6 +64,21 @@ const EditTicketForm = ({ ticket }) => {
     router.push("/");
   };
 
+  const [websites, setwebsites] = useState();
+
+  useEffect(() => {
+    const fetchWebsites = async () => {
+      try {
+        const response = await axios.get(`/api/Website`);
+        setwebsites(response.data.websites);
+      } catch (error) {
+        console.error("Error fetching websites:", error);
+      }
+    };
+
+    fetchWebsites();
+  }, []);
+
   const [categories, setCategories] = useState();
 
   useEffect(() => {
@@ -107,7 +121,7 @@ const EditTicketForm = ({ ticket }) => {
           rows="6"
           className="textarea textarea-primary"
         />
-        <label>Category</label>
+        <label>دسته بندی</label>
         <select
           className="select select-primary w-full"
           name="category"
@@ -117,6 +131,20 @@ const EditTicketForm = ({ ticket }) => {
           {categories?.map((category) => (
             <option key={category._id} value={category.name}>
               {category.name}
+            </option>
+          ))}
+        </select>
+
+        <label>وبسایت</label>
+        <select
+          className="select select-primary w-full"
+          name="category"
+          value={formData.website}
+          onChange={handleChange}
+        >
+          {websites?.map((website) => (
+            <option key={website._id} value={website.name}>
+              {website.name}
             </option>
           ))}
         </select>
