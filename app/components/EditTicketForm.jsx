@@ -85,10 +85,10 @@ const EditTicketForm = ({ ticket }) => {
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col gap-3 w-[90%]"
+        className="flex flex-col gap-3 w-[90%] md:w-[70%]"
       >
-        <h3>{EDITMODE ? "Update Your Ticket" : "Create New Ticket"}</h3>
-        <label>Title</label>
+        <h3 className="text-center font-semibold	text-2xl	">{EDITMODE ? "ویرایش تیکت" : "ساخت تیکت جدید"}</h3>
+        <label>موضوع</label>
         <input
           id="title"
           name="title"
@@ -96,15 +96,16 @@ const EditTicketForm = ({ ticket }) => {
           onChange={handleChange}
           required={true}
           value={formData.title}
+          className="input input-bordered input-primary"
         />
-        <label>Description</label>
+        <label>توضیحات</label>
         <textarea
           id="description"
           name="description"
           onChange={handleChange}
-          required={true}
           value={formData.description}
-          rows="5"
+          rows="6"
+          className="textarea textarea-primary"
         />
         <label>Category</label>
         <select
@@ -120,8 +121,8 @@ const EditTicketForm = ({ ticket }) => {
           ))}
         </select>
 
-        <label>Priority</label>
-        <div>
+        <label>اولویت</label>
+        <div className="flex gap-2">
           <input
             id="priority-1"
             name="priority"
@@ -129,6 +130,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={1}
             checked={formData.priority == 1}
+            className="radio radio-primary"
           />
           <label>1</label>
           <input
@@ -138,6 +140,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={2}
             checked={formData.priority == 2}
+            className="radio radio-primary"
           />
           <label>2</label>
           <input
@@ -147,6 +150,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={3}
             checked={formData.priority == 3}
+            className="radio radio-primary"
           />
           <label>3</label>
           <input
@@ -156,6 +160,7 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={4}
             checked={formData.priority == 4}
+            className="radio radio-primary"
           />
           <label>4</label>
           <input
@@ -165,24 +170,17 @@ const EditTicketForm = ({ ticket }) => {
             onChange={handleChange}
             value={5}
             checked={formData.priority == 5}
+            className="radio radio-primary"
           />
           <label>5</label>
         </div>
-        <label>Progress</label>
-        <input
-          type="range"
-          id="progress"
-          name="progress"
-          value={formData.progress}
-          min="0"
-          max="100"
-          onChange={handleChange}
-        />
+        <div className="flex justify-center">
         <input
           type="submit"
-          className="btn max-w-xs"
+          className="btn max-w-xs btn-outline btn-info"
           value={EDITMODE ? "ویرایش تیکت" : "ساخت تیکت"}
         />
+        </div>
       </form>
     </div>
   );
