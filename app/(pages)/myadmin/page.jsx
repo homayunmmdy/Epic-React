@@ -1,14 +1,18 @@
 "use client"
 import useStore from "@/app/store/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Admin() {
-  const [inputValue, setInputValue] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
   const { websiteName, setWebsiteName } = useStore((state) => ({
     websiteName: state.websiteName,
     setWebsiteName: state.setWebsiteName,
   }));
+  const [inputValue, setInputValue] = useState(''); 
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    setInputValue(websiteName);
+  }, [websiteName]);
 
   const handleSave = () => {
     setWebsiteName(inputValue);
