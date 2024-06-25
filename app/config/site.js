@@ -45,8 +45,8 @@ const SiteConfig = {
     // },
     {
       id : 3 ,
-      name : "تیکت",
-      link : "/admin/ticket/new"
+      name : "admin",
+      link : "/myadmin"
     },
     {
       id : 4 ,
