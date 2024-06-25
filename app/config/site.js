@@ -5,8 +5,8 @@ const SiteConfig = {
   name: "رویال وب",
   name_en: "royal web",
   description: "شما بدون وب سایت هیچ هویتی ندارید",
-  lang: "fa",
-  dir: "rtl",
+  lang: "en",
+  dir: "ltr",
   socialMedia : [
     {
       id : 1,
@@ -46,7 +46,7 @@ const SiteConfig = {
     {
       id : 3 ,
       name : "admin",
-      link : "/myadmin"
+      link : "/admin"
     },
     {
       id : 4 ,

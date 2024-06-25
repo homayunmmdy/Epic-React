@@ -2,7 +2,7 @@
 import useStore from "@/app/store/store";
 import { useEffect, useState } from "react";
 
-export default function Admin() {
+const SettingPage = () => {
   const { websiteName, setWebsiteName } = useStore((state) => ({
     websiteName: state.websiteName,
     setWebsiteName: state.setWebsiteName,
@@ -48,3 +48,5 @@ export default function Admin() {
     </div>
   );
 }
+
+export default SettingPage
