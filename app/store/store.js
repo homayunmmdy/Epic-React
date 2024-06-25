@@ -5,11 +5,36 @@ import { persist } from 'zustand/middleware';
 const useStore = create(
   persist(
     (set) => ({
-      websiteName: '',
-      setWebsiteName: (name) => set({ websiteName: name }),
+      websiteData: {
+        websiteName: '',
+        description: '',
+        siteUrl: '',
+        keywords: '',
+        logo: '',
+        favicon: '',
+        author: '',
+        socialMedia: [],
+      },
+      setWebsiteData: (key, value) =>
+        set((state) => ({
+          websiteData: {
+            ...state.websiteData,
+            [key]: value,
+          },
+        })),
+      addSocialMedia: (name, address) =>
+        set((state) => ({
+          websiteData: {
+            ...state.websiteData,
+            socialMedia: [
+              ...state.websiteData.socialMedia,
+              { name, address },
+            ],
+          },
+        })),
     }),
     {
-      name: 'website-storage', // unique name
+      name: 'website-storage',
     }
   )
 );
