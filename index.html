@@ -1,12 +1,13 @@
 <body>
-
   <script type="module">
     const rootElement = document.createElement("div");
-    rootElement.setAttribute('id', 'root')
+    rootElement.id = "root";
+
     const element = document.createElement("div");
     element.className = "container";
     element.textContent = "Hello world";
-    rootElement.append(element)
-    document.body.append(rootElement)
+
+    rootElement.append(element);
+    document.body.prepend(rootElement);
   </script>
 </body>
