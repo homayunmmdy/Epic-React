@@ -7,13 +7,18 @@
   <script type="module">
     const rootElement = document.getElementById("root");
     const element = React.createElement(
-      "div", {
-      className: "container",
-    },
-    React.createElement('span', null , 'Hello'),
-    ' ',
-    React.createElement('span', null , 'World')
-  );
+      "div",
+      {
+        className: "container",
+      },
+      React.createElement("p", null, "Here's Sam's favorite food:"),
+      React.createElement(
+        "ul",
+        { className: "sams-food" },
+        React.createElement("li", null, "Green eggs"),
+        React.createElement("li", null, "Ham")
+      )
+    );
     ReactDOM.createRoot(rootElement).render(element);
   </script>
 </body>
