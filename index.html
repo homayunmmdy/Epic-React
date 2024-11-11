@@ -6,15 +6,18 @@
 
   <script type="text/babel">
     function message({ children }) {
+      console.log('Calling message', children)
       return <div className="message">{children}</div>;
     }
 
     const element = (
       <div className="container">
-        {message({ children: "Hello World" })}
-        {message({ children: "Goodbye World" })}
-      </div>
+        {React.createElement(message, { children: 'Hello World' })}
+				{React.createElement(message, { children: 'Goodbye World' })}
+			</div>
     );
+
+    console.log(element)
 
     ReactDOM.createRoot(document.getElementById("root")).render(element);
   </script>
