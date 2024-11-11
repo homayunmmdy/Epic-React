@@ -1,9 +1,12 @@
-const operations = {
-  "+": (left: number, right: number): number => left + right,
-  "-": (left: number, right: number): number => left - right,
-  "*": (left: number, right: number): number => left * right,
-  "/": (left: number, right: number): number => left / right,
-  "**": (left: number, right: number): number => left ** right,
+type OperationsFn = (left: number, right: number) => number;
+type Operator = '+' | '-' | '*' | '/' | '**'
+
+const operations: Record<Operator, OperationsFn> = {
+  "+": (left, right) => left + right,
+  "-": (left, right) => left - right,
+  "*": (left, right) => left * right,
+  "/": (left, right) => left / right,
+  "**": (left, right) => left ** right,
 };
 
 type CalculatorProps = {
@@ -12,7 +15,7 @@ type CalculatorProps = {
   right?: number;
 };
 
-function Calculator({ left = 0, operator = '+', right = 0 }: CalculatorProps) {
+function Calculator({ left = 0, operator = "+", right = 0 }: CalculatorProps) {
   const result = operations[operator](left, right);
   return (
     <div>
