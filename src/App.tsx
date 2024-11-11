@@ -9,12 +9,11 @@ const operations = {
 
 type CalculatorProps = {
   left: number;
-  operator: string;
+  operator: '+' | '-' | '*' | '/';
   right: number;
 };
 
 function Calculator({ left, operator, right }: CalculatorProps) {
-  // @ts-expect-error we'll fix this one later
   const result = operations[operator](left, right);
   return (
     <div>
