@@ -5,15 +5,17 @@
   <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.js"></script>
 
   <script type="text/babel">
+    function message({ children }) {
+      return <div className="message">{children}</div>;
+    }
+
     const element = (
-      <>
-        <p>Here's Sam's favorite food</p>
-        <ul className="samas-food">
-          <li>Green eggs</li>
-          <li>Ham</li>
-        </ul>
-      </>
+      <div className="container">
+        {message({ children: "Hello World" })}
+        {message({ children: "Goodbye World" })}
+      </div>
     );
+
     ReactDOM.createRoot(document.getElementById("root")).render(element);
   </script>
 </body>
