@@ -1,13 +1,12 @@
 type OperationsFn = (left: number, right: number) => number;
-type Operator = '+' | '-' | '*' | '/' | '**'
 
-const operations: Record<Operator, OperationsFn> = {
+const operations = {
   "+": (left, right) => left + right,
   "-": (left, right) => left - right,
   "*": (left, right) => left * right,
   "/": (left, right) => left / right,
   "**": (left, right) => left ** right,
-};
+} satisfies Record<string, OperationsFn>
 
 type CalculatorProps = {
   left?: number;
