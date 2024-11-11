@@ -7,12 +7,12 @@ const operations = {
 };
 
 type CalculatorProps = {
-  left: number;
-  operator: keyof typeof operations;
-  right: number;
+  left?: number;
+  operator?: keyof typeof operations;
+  right?: number;
 };
 
-function Calculator({ left, operator, right }: CalculatorProps) {
+function Calculator({ left = 0, operator = '+', right = 0 }: CalculatorProps) {
   const result = operations[operator](left, right);
   return (
     <div>
