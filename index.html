@@ -5,39 +5,33 @@
   <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.js"></script>
 
   <script type="text/babel">
-    function Calculator({ left, operator, right }) {
-      let result
-      switch (operator) {
-        case '+': 
-          result = left + right;
-          break;
-        case '-':
-          result = left - right;
-          break;
-        case '*':
-          result = left * right;
-          break;
-        case '/':
-          result = right !== 0 ? left / right : "Cannot divide by zero";
-          break;
-        default : 
-          result = 'Invalid Operator'
-      }
-      return (
-        <div>
-          <code>
-            {left} {operator} {right} = <output> {result} </output>
-          </code>
-        </div>
-      );
-    }
+   const operations = {
+			'+': (left, right) => left + right,
+			'-': (left, right) => left - right,
+			'*': (left, right) => left * right,
+			'/': (left, right) => left / right,
+		}
 
-    const element = (
-      <div className="container">
-        <h1>Calculator</h1>
-        <Calculator left={2} operator="*" right={4} />
-      </div>
-    );
+		function Calculator({ left, operator, right }) {
+			const result = operations[operator](left, right)
+			return (
+				<div>
+					<code>
+						{left} {operator} {right} = <output>{result}</output>
+					</code>
+				</div>
+			)
+		}
+
+		const element = (
+			<div>
+				<h1>Calculator</h1>
+				<Calculator left={1} operator="+" right={2} />
+				<Calculator left={1} operator="-" right={2} />
+				<Calculator left={1} operator="*" right={2} />
+				<Calculator left={1} operator="/" right={2} />
+			</div>
+		)
 
     ReactDOM.createRoot(document.getElementById("root")).render(element);
   </script>
