@@ -1,15 +1,14 @@
-
-
 const operations = {
   "+": (left: number, right: number): number => left + right,
   "-": (left: number, right: number): number => left - right,
   "*": (left: number, right: number): number => left * right,
   "/": (left: number, right: number): number => left / right,
+  "**": (left: number, right: number): number => left ** right,
 };
 
 type CalculatorProps = {
   left: number;
-  operator: '+' | '-' | '*' | '/';
+  operator: keyof typeof operations;
   right: number;
 };
 
