@@ -4,6 +4,15 @@ const App = () => {
   }
   return (
     <form action={logFormData}>
+      <label htmlFor="type">Account Type</label>
+
+      <select id="type">
+        <option value="">- Please select an option</option>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+        <option value="parent">Parent</option>
+        <option value="student">Student</option>
+      </select>
       <div>
         <label htmlFor="username">UserName</label>
         <input id="username" name="username" type="text" />
