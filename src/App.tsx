@@ -74,7 +74,7 @@ const App = () => {
           id="startDateInput"
           name="startDate"
           type="date"
-          defaultValue={new Date().toISOString().slice(0, 10)}
+          defaultValue={new Date('today').toISOString().slice(0, 10)}
         />
       </div>
       <button type="submit">Submit</button>
