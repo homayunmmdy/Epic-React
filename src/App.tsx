@@ -4,6 +4,7 @@ const App = () => {
   }
   return (
     <form action={logFormData}>
+      <input type="hidden" name="orgId" value="123"/>
       <label htmlFor="type">Account Type</label>
 
       <select id="type">
