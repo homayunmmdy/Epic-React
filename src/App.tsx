@@ -1,6 +1,11 @@
 const App = () => {
+  function logFormData(formData: FormData) {
+    console.log(Object.fromEntries(formData));
+  }
   return (
-    <form action="/api/login">
+    <form
+      action={logFormData}
+    >
       <fieldset>
         <label htmlFor="username">UserName</label>
         <input id="username" name="username" type="text" />
@@ -15,7 +20,7 @@ const App = () => {
       </fieldset>
       <fieldset>
         <label htmlFor="photo">photo</label>
-        <input id="photo" type="file" name="photo"  accept="image/*"/>
+        <input id="photo" type="file" name="photo" accept="image/*" />
       </fieldset>
       <fieldset>
         <label htmlFor="color">Favorite Color</label>
