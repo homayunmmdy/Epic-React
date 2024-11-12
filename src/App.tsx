@@ -39,6 +39,19 @@ const App = () => {
         <input type="checkbox" id="waiver" />
         Waiver Signed
       </label>
+      <fieldset>
+        <legend>Visibility</legend>
+
+        <div>
+          <input type="radio" id="public" name="visibility" />
+          <label htmlFor="public">public</label>
+        </div>
+
+        <div>
+          <input type="radio" id="private" name="visibility" />
+          <label htmlFor="private">private</label>
+        </div>
+      </fieldset>
 
       <div>
         <label htmlFor="date">Start Date</label>
