@@ -1,39 +1,42 @@
-type OperationsFn = (left: number, right: number) => number;
-
-const operations = {
-  "+": (left, right) => left + right,
-  "-": (left, right) => left - right,
-  "*": (left, right) => left * right,
-  "/": (left, right) => left / right,
-  "**": (left, right) => left ** right,
-} satisfies Record<string, OperationsFn>
-
-type CalculatorProps = {
-  left?: number;
-  operator?: keyof typeof operations;
-  right?: number;
-};
-
-function Calculator({ left = 0, operator = "+", right = 0 }: CalculatorProps) {
-  const result = operations[operator](left, right);
-  return (
-    <div>
-      <code>
-        {left} {operator} {right} = <output>{result}</output>
-      </code>
-    </div>
-  );
-}
+import "./app.css"
+const smallBox = (
+	<div
+		className="box box--small"
+		style={{ fontStyle: 'italic', backgroundColor: 'lightblue' }}
+	>
+		small lightblue box
+	</div>
+)
+const mediumBox = (
+	<div
+		className="box box--medium"
+		style={{ fontStyle: 'italic', backgroundColor: 'pink' }}
+	>
+		medium pink box
+	</div>
+)
+const largeBox = (
+	<div
+		className="box box--large"
+		style={{ fontStyle: 'italic', backgroundColor: 'orange' }}
+	>
+		large orange box
+	</div>
+)
+const sizelessColorlessBox = (
+	<div className="box" style={{ fontStyle: 'italic' }}>
+		sizeless colorless box
+	</div>
+)
 
 function App() {
   return (
     <div>
-      <h1>Calculator</h1>
-      <Calculator left={1} operator="+" right={2} />
-      <Calculator left={1} operator="-" right={2} />
-      <Calculator left={1} operator="*" right={2} />
-      <Calculator left={1} operator="/" right={2} />
-    </div>
+			{smallBox}
+			{mediumBox}
+			{largeBox}
+			{sizelessColorlessBox}
+		</div>
   );
 }
 
