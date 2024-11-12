@@ -4,59 +4,78 @@ const App = () => {
   }
   return (
     <form action={logFormData}>
-      <input type="hidden" name="orgId" value="123"/>
-      <label htmlFor="type">Account Type</label>
-
-      <select id="type">
-        <option value="">- Please select an option</option>
-        <option value="admin">Admin</option>
-        <option value="teacher">Teacher</option>
-        <option value="parent">Parent</option>
-        <option value="student">Student</option>
-      </select>
+      <input type="hidden" name="orgId" value="123" />
       <div>
-        <label htmlFor="username">UserName</label>
-        <input id="username" name="username" type="text" />
+        <label htmlFor="accountTypeSelection">Account Type:</label>
+        <select
+          id="accountTypeSelection"
+          name="accountType"
+          defaultValue="student"
+        >
+          <option value="">--Please select an option--</option>
+          <option value="admin">Admin</option>
+          <option value="teacher">Teacher</option>
+          <option value="parent">Parent</option>
+          <option value="student">Student</option>
+        </select>
       </div>
       <div>
-        <label htmlFor="password">password</label>
-        <input id="password" name="password" type="password" />
+        <label htmlFor="usernameInput">Username:</label>
+        <input id="usernameInput" name="username" />
       </div>
       <div>
-        <label htmlFor="age">age</label>
-        <input id="age" name="age" type="number" />
+        <label htmlFor="passwordInput">Password:</label>
+        <input id="passwordInput" name="password" type="password" />
       </div>
       <div>
-        <label htmlFor="photo">photo</label>
-        <input id="photo" type="file" name="photo" accept="image/*" />
+        <label htmlFor="ageInput">Age:</label>
+        <input
+          id="ageInput"
+          name="age"
+          type="number"
+          min="0"
+          max="200"
+          defaultValue={18}
+        />
       </div>
-
       <div>
-        <label htmlFor="color">Favorite Color</label>
-        <input id="color" type="color" name="color" />
+        <label htmlFor="photoInput">Photo:</label>
+        <input id="photoInput" name="photo" type="file" accept="image/*" />
       </div>
-
-      <label htmlFor="waiver">
-        <input type="checkbox" id="waiver" />
-        Waiver Signed
-      </label>
+      <div>
+        <label htmlFor="colorInput">Favorite Color:</label>
+        <input
+          id="colorInput"
+          name="color"
+          type="color"
+          defaultValue="#002E5D"
+        />
+      </div>
       <fieldset>
-        <legend>Visibility</legend>
-
-        <div>
-          <input type="radio" id="public" name="visibility" />
-          <label htmlFor="public">public</label>
-        </div>
-
-        <div>
-          <input type="radio" id="private" name="visibility" />
-          <label htmlFor="private">private</label>
-        </div>
+        <legend>Visibility:</legend>
+        <label>
+          <input name="visibility" type="radio" value="public" defaultChecked />
+          Public
+        </label>
+        <label>
+          <input name="visibility" type="radio" value="private" />
+          Private
+        </label>
       </fieldset>
-
       <div>
-        <label htmlFor="date">Start Date</label>
-        <input id="date" type="date" name="date" />
+        <label>
+          <input name="waiver" type="checkbox" defaultChecked />
+          Waiver Signed
+        </label>
+      </div>
+      <div>
+        <label htmlFor="startDateInput">Start Date:</label>
+        <input
+          id="startDateInput"
+          name="startDate"
+          type="date"
+          defaultValue={new Date().toISOString().slice(0, 10)}
+        />
       </div>
       <button type="submit">Submit</button>
     </form>
