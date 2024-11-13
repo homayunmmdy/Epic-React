@@ -1,9 +1,24 @@
+import { useErrorBoundary } from "react-error-boundary";
+
 const App = () => {
-  function logFormData(formData: FormData) {
-    console.log(Object.fromEntries(formData));
-  }
+  const { showBoundary } = useErrorBoundary();
   return (
-    <form action={logFormData}>
+    <form
+      action="api/onboarding"
+      method="POST"
+      encType="multipart/form-data"
+      onSubmit={(event) => {
+        try {
+          event.preventDefault();
+          const formData = new FormData(event.currentTarget);
+          console.log(Object.fromEntries(formData));
+          const accountType = formData.get("accounType") as string;
+          console.log(accountType.toUpperCase());
+        } catch (error) {
+          showBoundary(error)
+        }
+      }}
+    >
       <input type="hidden" name="orgId" value="123" />
       <div>
         <label htmlFor="accountTypeSelection">Account Type:</label>
@@ -74,7 +89,7 @@ const App = () => {
           id="startDateInput"
           name="startDate"
           type="date"
-          defaultValue={new Date('today').toISOString().slice(0, 10)}
+          defaultValue={new Date().toISOString().slice(0, 10)}
         />
       </div>
       <button type="submit">Submit</button>
