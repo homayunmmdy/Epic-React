@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { generateGradient, getMatchingPosts } from "../public/shared/BlogPost";
 import "./app.css";
-const App = () => {
+
+function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
-  const [query, setQuery] = useState(params.get("query") ?? "");
+  const initialQuery = params.get("query") ?? "";
+  return initialQuery;
+}
+const App = () => {
+  const [query, setQuery] = useState(() => getQueryParams());
   const words = query.split(" ");
 
   const dogChecked = words.includes("dog");
