@@ -15,9 +15,17 @@ const App = () => {
   const catChecked = words.includes("cat");
   const caterpillarChecked = words.includes("caterpillar");
 
+  const handlePopState = () => {
+    setQuery(getQueryParams);
+  };
+  
   useEffect(() => {
-    window.addEventListener("popstate", () => setQuery(getQueryParams));
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, []);
+
   function handleCheck(tag: string, checked: boolean) {
     const newWords = checked ? [...words, tag] : words.filter((w) => w !== tag);
     setQuery(newWords.filter(Boolean).join(" ").trim());
