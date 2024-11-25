@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateGradient, getMatchingPosts } from "../public/shared/BlogPost";
 import "./app.css";
 
@@ -15,6 +15,9 @@ const App = () => {
   const catChecked = words.includes("cat");
   const caterpillarChecked = words.includes("caterpillar");
 
+  useEffect(() => {
+    window.addEventListener("popstate", () => setQuery(getQueryParams));
+  }, []);
   function handleCheck(tag: string, checked: boolean) {
     const newWords = checked ? [...words, tag] : words.filter((w) => w !== tag);
     setQuery(newWords.filter(Boolean).join(" ").trim());
