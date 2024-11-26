@@ -8,8 +8,8 @@ import { setGlobalSearchParams } from "../public/shared/utils";
 import "./app.css";
 
 function getQueryParam() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("query") ?? "";
+	const params = new URLSearchParams(window.location.search)
+	return params.get('query') ?? ''
 }
 
 function App() {
@@ -96,31 +96,54 @@ function Form({
 
 function MatchingPosts({ query }: { query: string }) {
   const matchingPosts = getMatchingPosts(query);
+  const [favorites, setFavorites] = useState<Array<string>>([]);
 
   return (
     <ul className="post-list">
       {matchingPosts
-        .sort((a, b) => a.title.localeCompare(b.title))
+        .sort((a, b) => {
+          const aFav = favorites.includes(a.id);
+          const bFav = favorites.includes(b.id);
+          return aFav === bFav ? 0 : aFav ? -1 : 1;
+        })
         .map((post) => (
-          <Card key={post.id} post={post} />
+          <Card
+            key={post.id}
+            post={post}
+            isFavorited={favorites.includes(post.id)}
+            onFavoriteClick={(favorite) => {
+              if (favorite) {
+                setFavorites([...favorites, post.id]);
+              } else {
+                setFavorites(favorites.filter((fav) => fav !== post.id));
+              }
+            }}
+          />
         ))}
     </ul>
   );
 }
 
-function Card({ post }: { post: BlogPost }) {
-  const [isFavorited, setIsFavorited] = useState(false);
+function Card({
+  post,
+  isFavorited,
+  onFavoriteClick,
+}: {
+  post: BlogPost;
+  isFavorited: boolean;
+  onFavoriteClick: (isFavorited: boolean) => void;
+}) {
   return (
     <li>
       {isFavorited ? (
         <button
           aria-label="Remove favorite"
-          onClick={() => setIsFavorited(false)}
+          onClick={() => onFavoriteClick(false)}
         >
           ❤️
         </button>
       ) : (
-        <button aria-label="Add favorite" onClick={() => setIsFavorited(true)}>
+        <button aria-label="Add favorite" onClick={() => onFavoriteClick(true)}>
           🤍
         </button>
       )}
