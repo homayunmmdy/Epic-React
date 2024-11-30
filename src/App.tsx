@@ -1,11 +1,11 @@
-import SearchForm from './searchForm/SearchForm'
+import MagicBox from "./magicBox/MagicBox";
 
 const App = () => {
   return (
-	<>
-	<SearchForm />
-	</>
-  )
-}
+    <>
+      <MagicBox />
+    </>
+  );
+};
 
-export default App
+export default App;
