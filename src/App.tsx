@@ -1,9 +1,9 @@
-import MagicBox from "./magicBox/MagicBox";
+import TicTacToe from "./TicTacToe/TicTacToe";
 
 const App = () => {
   return (
     <>
-      <MagicBox />
+      <TicTacToe />
     </>
   );
 };
