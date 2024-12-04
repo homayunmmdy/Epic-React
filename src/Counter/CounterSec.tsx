@@ -1,13 +1,11 @@
 import { useReducer, useState } from "react";
 import "./style.css";
 
-type State = {
-  count: number;
-};
-type Action = State;
+type State = { count: number };
+type Action = Partial<State> | ((state: State) => Partial<State>);
 const countReducer = (state: State, action: Action) => ({
   ...state,
-  ...action,
+  ...(typeof action === "function" ? action(state) : action),
 });
 
 function Counter({ initialCount = 0, step = 1 }) {
@@ -15,8 +13,10 @@ function Counter({ initialCount = 0, step = 1 }) {
     count: initialCount,
   });
   const { count } = state;
-  const increment = () => setState({ count: count + step });
-  const decrement = () => setState({ count: count - step });
+  const increment = () =>
+    setState((currentSate) => ({ count: currentSate.count + step }));
+  const decrement = () =>
+    setState((currentSate) => ({ count: currentSate.count - step }));
   return (
     <div className="counter">
       <output>{count}</output>
