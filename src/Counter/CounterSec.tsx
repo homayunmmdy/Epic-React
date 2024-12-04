@@ -1,14 +1,22 @@
 import { useReducer, useState } from "react";
 import "./style.css";
-function countReducer(count: number, change: number) {
-  return count + change;
-}
-function Counter({ initialCount = 0, step = 1 }) {
-  const [count, changeCount] = useReducer(countReducer,initialCount);
 
- 
-  const increment = () => changeCount(+ step);
-  const decrement = () => changeCount(- step);
+type State = {
+  count: number;
+};
+type Action = State;
+const countReducer = (state: State, action: Action) => ({
+  ...state,
+  ...action,
+});
+
+function Counter({ initialCount = 0, step = 1 }) {
+  const [state, setState] = useReducer(countReducer, {
+    count: initialCount,
+  });
+  const { count } = state;
+  const increment = () => setState({ count: count + step });
+  const decrement = () => setState({ count: count - step });
   return (
     <div className="counter">
       <output>{count}</output>
