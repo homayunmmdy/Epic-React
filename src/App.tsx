@@ -1,10 +1,9 @@
-import CounterSec from "./Counter/CounterSec";
-import TicTacToe from "./TicTacToe/TicTacToe";
+import SearchForm from "./searchForm/SearchForm";
 
 const App = () => {
   return (
     <>
-      <TicTacToe />
+      <SearchForm />
     </>
   );
 };
