@@ -9,7 +9,9 @@ import "./style.css";
 
 const getQueryParam = (params: URLSearchParams) => params.get("query") ?? "";
 
-function SearchForm() {
+// 🐨 create a function called useSearchParams here and move much of what's
+// below into this hook.
+function useSearchParams() {
   const [searchParams, setSearchParamsState] = useState(
     () => new URLSearchParams(window.location.search)
   );
@@ -18,10 +20,9 @@ function SearchForm() {
     function updateSearchParams() {
       setSearchParamsState((prevParams) => {
         const newParams = new URLSearchParams(window.location.search);
-        if (prevParams.toString() === newParams.toString()) {
-          return prevParams;
-        }
-        return newParams;
+        return prevParams.toString() === newParams.toString()
+          ? prevParams
+          : newParams;
       });
     }
     window.addEventListener("popstate", updateSearchParams);
@@ -30,16 +31,22 @@ function SearchForm() {
 
   function setSearchParams(...args: Parameters<typeof setGlobalSearchParams>) {
     const searchParams = setGlobalSearchParams(...args);
-    setSearchParamsState(prevParams => {
-		if(prevParams.toString() === searchParams.toString()) {
-			return prevParams
-		}
-		return searchParams
-	});
+    setSearchParamsState((prevParams) => {
+      return prevParams.toString() === searchParams.toString()
+        ? prevParams
+        : searchParams;
+    });
     return searchParams;
   }
 
+  return [searchParams, setSearchParams] as const;
+}
+
+function SearchForm() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const query = getQueryParam(searchParams);
+
   return (
     <div className="app">
       <Form query={query} setSearchParams={setSearchParams} />
@@ -70,12 +77,7 @@ function Form({
   }
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSearchParams({ query });
-      }}
-    >
+    <form onSubmit={(e) => e.preventDefault()}>
       <div>
         <label htmlFor="searchInput">Search:</label>
         <input
@@ -116,7 +118,6 @@ function Form({
           🐛 caterpillar
         </label>
       </div>
-      <button type="submit">Submit</button>
     </form>
   );
 }
