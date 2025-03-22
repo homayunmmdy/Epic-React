@@ -42,3 +42,40 @@ export default App;
 ```
 
 In this example, `query` is the state variable that holds the filter condition, and `filteredItems` dynamically updates based on the query.
+
+# controlled input
+
+a controlled input is an input field whose value is managed by React state. When the user types, an onChange event updates the state, and the input's value is set from that state.
+
+```javascript
+import React, { useState } from "react";
+
+function App() {
+  const [text, setText] = useState(""); // State to hold input value
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={text} // Input value is controlled by state
+        onChange={(e) => setText(e.target.value)} // Update state on change
+      />
+      <p>You typed: {text}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+
+### **Why Use Controlled Inputs?**
+1. **Single Source of Truth**: The input's value is stored in React state, making it easy to access and manipulate.
+2. **Real-time Validation**: You can validate or transform user input as they type.
+3. **Dynamic Behavior**: You can conditionally update the UI based on the input value.
+4. **Form Submission**: Easily gather all form data from the state when submitting.
+
+### **When to Use Controlled Inputs?**
+- When you need to **control or validate user input** dynamically.
+- When you want to **synchronize input values** with other parts of the UI.
+- When building forms that require **real-time updates** or complex logic.
