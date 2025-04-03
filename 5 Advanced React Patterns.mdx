@@ -46,3 +46,12 @@ const Footer = ({ UserMessage }: { UserMessage: string }) => {
 
 export default Footer;
 ```
+
+`useRef` in React creates a mutable object (`{ current: value }`) that persists across re-renders. It's commonly used to access DOM elements directly (like focusing an input) or to store any mutable value without triggering re-renders. Unlike state, updating a ref doesn’t cause the component to update.
+
+Example:
+```jsx
+const inputRef = useRef(null);
+// Later: <input ref={inputRef} />
+// Access: inputRef.current.focus();
+```
